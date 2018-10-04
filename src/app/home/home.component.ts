@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
     this.OfertasService.getOfertas2()
     .then(( ofertas: Oferta[] ) => {
       // tslint:disable-next-line:no-unused-expression
-      this.ofertas;
+      this.ofertas = ofertas;
     });
   }
 
