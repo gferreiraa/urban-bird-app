@@ -2,7 +2,6 @@ import { Oferta } from './shared/oferta.model';
 export class OfertasServices {
 
   public oferta: Oferta [] = [
-    [
       {
         id: 1,
         categoria: 'restaurante',
@@ -51,8 +50,7 @@ export class OfertasServices {
           {url: '/assets/ofertas/3/img6.jpg'}
         ]
       }
-    ]
-  ];
+    ];
 
 
   public getOfertas(): Oferta[] {
