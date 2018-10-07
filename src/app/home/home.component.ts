@@ -16,10 +16,13 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     // this.ofertas = this.OfertasService.getOfertas();
     // console.log(this.ofertas);
-    this.OfertasService.getOfertas2()
+    this.OfertasService.getOfertas()
     .then(( ofertas: Oferta[] ) => {
       // tslint:disable-next-line:no-unused-expression
       this.ofertas = ofertas;
+    })
+    .catch((param: any) => {
+      console.log(param);
     });
   }
 
