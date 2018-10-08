@@ -2,6 +2,20 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
 
+#Project Tree
+
+├── README.md
+├── angular.json
+├── banco-de-dados.json
+├── e2e
+├── node_modules
+├── package-lock.json
+├── package.json
+├── src
+├── tsconfig.json
+└── tslint.json
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
