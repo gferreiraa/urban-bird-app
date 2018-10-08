@@ -4,16 +4,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 #Project Tree
 
-├── README.md
-├── angular.json
-├── banco-de-dados.json
-├── e2e
-├── node_modules
-├── package-lock.json
-├── package.json
-├── src
-├── tsconfig.json
-└── tslint.json
+├── README.md</br>
+├── angular.json</br>
+├── banco-de-dados.json</br>
+├── e2e</br>
+├── node_modules</br>
+├── package-lock.json</br>
+├── package.json</br>
+├── src</br>
+├── tsconfig.json</br>
+└── tslint.json</br>
 
 
 ## Development server
