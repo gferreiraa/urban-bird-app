@@ -1,15 +1,22 @@
+import { OfertasServices } from './../ofertas.service';
 import { Component, OnInit } from '@angular/core';
+import { Oferta } from '../shared/oferta.model';
 
 @Component({
   selector: 'app-restaurantes',
   templateUrl: './restaurantes.component.html',
-  styleUrls: ['./restaurantes.component.css']
+  styleUrls: ['./restaurantes.component.css'],
+  providers: [ OfertasServices ]
 })
 export class RestaurantesComponent implements OnInit {
 
-  constructor() { }
+  constructor( private ofertasServices: OfertasServices) { }
 
   ngOnInit() {
+    this.ofertasServices.getOfertasPorCategoria('restaurante')
+    .then((ofertas: Oferta[]) => {
+      console.log(ofertas);
+    });
   }
 
 }
