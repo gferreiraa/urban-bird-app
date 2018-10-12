@@ -1,27 +1,21 @@
 import { Http } from '@angular/http';
-import { Oferta } from './shared/oferta.model';
 import { Injectable } from '@angular/core';
+import { Oferta } from './shared/oferta.model';
 
 @Injectable()
 export class OfertasServices {
 
-  constructor(private http: Http) {}
+    constructor(private http: Http) {}
 
-  public getOfertas(): Promise<Oferta[]> {
-    // Executar requisição http
-    return this.http.get('http://localhost:3000/ofertas?destaque=true')
-    .toPromise()
-    .then((resposta: any) => resposta.json());
-    // Retornar uma promise  Oferta[]
-  }
+    public getOfertas(): Promise<Oferta[]> {
+        return this.http.get('http://localhost:3000/ofertas?destaque=true')
+            .toPromise()
+            .then((resposta: any) => resposta.json());
+    }
 
-  public getOfertasPorCategoria(categoria: string): Promise<Oferta[]> {
-    return this.http.get(`http://localhost:3000/ofertas?destaque=${categoria}`)
-    .toPromise()
-    .then((resposta: any) => resposta.json());
-  }
-
-
-
-
+    public getOfertasPorCategoria(categoria: string): Promise<Oferta[]> {
+        return this.http.get(`http://localhost:3000/ofertas?categoria=${categoria}`)
+            .toPromise()
+            .then((resposta: any) => resposta.json());
+    }
 }
