@@ -6,7 +6,7 @@ import { OfertasServices } from 'src/app/ofertas.service';
   selector: 'app-como-usar',
   templateUrl: './como-usar.component.html',
   styleUrls: ['./como-usar.component.css'],
-  providers: [ OfertasServices]
+  providers: [ OfertasServices ]
 })
 export class ComoUsarComponent implements OnInit {
 

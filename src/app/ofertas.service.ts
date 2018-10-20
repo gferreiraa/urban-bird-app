@@ -24,15 +24,23 @@ export class OfertasServices {
       return this.http.get(`${ URL_API }/ofertas?id=${id}`)
         .toPromise()
         .then((resposta: any) => {
-          return resposta.json()[0].descricao;
+          return resposta.json()[0];
         });
     }
 
     public getComoUsarOfertaPorId(id: number): Promise<string> {
       return this.http.get(`${ URL_API }/como-usar?id=${id}`)
       .toPromise()
-      .then((resposta: any) => {
-          return resposta.json();
+      .then((descricao: any) => {
+          return descricao.json()[0].descricao;
+      });
+    }
+
+    public getOndeFicaOfertaPorId(id: number): Promise<string> {
+      return this.http.get(`${ URL_API }/onde-fica?id=${id}`)
+      .toPromise()
+      .then((descricao: any) => {
+          return descricao.json()[0].descricao;
       });
     }
 
