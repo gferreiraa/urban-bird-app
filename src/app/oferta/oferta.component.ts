@@ -25,17 +25,4 @@ export class OfertaComponent implements OnInit {
       this.oferta = oferta;
     });
   }
-
-  /*
-    observable (Observável)
-    Observable (Observador)
-  */
-
-  let myObservable = Observable.create((observer: Observer<T>) => {
-    observer.next('First Event');
-  });
-  myObservable.subscribe(
-    // Instrução, Erro ou Conclusão
-    (resultado: any ) => console.log(resultado)
-  );
 }
