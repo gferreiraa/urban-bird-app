@@ -12,8 +12,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  public search(event: Event): void {
-    console.log((<HTMLInputElement>event.target).value);
+  public search(searchReference: string): void {
+    console.log(searchReference);
   }
 
 }
