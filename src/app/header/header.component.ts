@@ -22,7 +22,8 @@ export class HeaderComponent implements OnInit {
     this.ofertas = this.OfertasService.pesquisaOfertas(searchReference);
     this.ofertas.subscribe(
       (ofertas: Oferta[]) => console.log(ofertas),
-      (erro: any) => console.log('Erro Status: ', erro.status)
+      (erro: any) => console.log('Erro Status: ', erro.status),
+      () => console.log('Fluxo de eventos completo!')
     );
   }
 
