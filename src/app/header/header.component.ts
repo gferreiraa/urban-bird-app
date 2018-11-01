@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OfertasServices } from 'src/app/ofertas.service';
 import { Observable, Subject } from 'rxjs';
 import { Oferta } from '../shared/oferta.model';
-import { switchMap, debounceTime } from 'rxjs/operators';
+import { switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 @Component({
@@ -19,9 +19,10 @@ export class HeaderComponent implements OnInit {
   constructor( private OfertasService: OfertasServices) { }
 
   ngOnInit() {
-    this.ofertas = this.subjectPesquisa.pipe(
-      debounceTime(1000),
-      switchMap((termo: string) => {
+    this.ofertas = this.subjectPesquisa
+      .pipe(debounceTime(1000))
+      .pipe(distinctUntilChanged())
+      .pipe(switchMap((termo: string) => {
         console.log( 'Requisição http para api' );
         if (termo.trim() === '') {
           return of<Oferta[]>([]);
