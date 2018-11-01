@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OfertasServices } from 'src/app/ofertas.service';
 import { Observable, Subject } from 'rxjs';
 import { Oferta } from '../shared/oferta.model';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.ofertas = this.subjectPesquisa.pipe(
+      debounceTime(1000),
       switchMap((termo: string) => {
         console.log( 'Requisição http para api' );
         return this.OfertasService.pesquisaOfertas(termo);
