@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OfertasServices } from 'src/app/ofertas.service';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Oferta } from '../shared/oferta.model';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -12,19 +13,22 @@ import { Oferta } from '../shared/oferta.model';
 export class HeaderComponent implements OnInit {
 
   public ofertas: Observable<Oferta[]>;
+  public subjectPesquisa: Subject<string> = new Subject<string>();
 
   constructor( private OfertasService: OfertasServices) { }
 
   ngOnInit() {
+    this.ofertas = this.subjectPesquisa.pipe(
+      switchMap((termo: string) => {
+        console.log( 'Requisição http para api' );
+        return this.OfertasService.pesquisaOfertas(termo);
+      })
+    );
+    this.ofertas.subscribe((ofertas: Oferta[]) => console.log(ofertas));
   }
 
   public search(searchReference: string): void {
-    this.ofertas = this.OfertasService.pesquisaOfertas(searchReference);
-    this.ofertas.subscribe(
-      (ofertas: Oferta[]) => console.log(ofertas),
-      (erro: any) => console.log('Erro Status: ', erro.status),
-      () => console.log('Fluxo de eventos completo!')
-    );
+    this.subjectPesquisa.next(searchReference);
   }
 
 }
