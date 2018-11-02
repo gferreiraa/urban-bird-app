@@ -22,3 +22,7 @@
 .active {
   color: #FFF
 }
+
+.list-group--customize{
+    position: absolute;
+}

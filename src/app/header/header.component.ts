@@ -29,6 +29,7 @@ export class HeaderComponent implements OnInit {
         }
         return this.OfertasService.pesquisaOfertas(termo);
       })
+
     );
     this.ofertas.subscribe((ofertas: Oferta[]) => console.log(ofertas));
   }
