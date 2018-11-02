@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OfertasServices } from 'src/app/ofertas.service';
-import { Observable, Subject } from 'rxjs';
 import { Oferta } from '../shared/oferta.model';
-import { switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { of } from 'rxjs';
+
+import '../util/rxjs-extensios';
 
 @Component({
   selector: 'app-header',
@@ -15,6 +14,7 @@ export class HeaderComponent implements OnInit {
 
   public ofertas: Observable<Oferta[]>;
   public subjectPesquisa: Subject<string> = new Subject<string>();
+  public ofertas2: Oferta[];
 
   constructor( private OfertasService: OfertasServices) { }
 
@@ -29,9 +29,10 @@ export class HeaderComponent implements OnInit {
         }
         return this.OfertasService.pesquisaOfertas(termo);
       })
-
     );
-    this.ofertas.subscribe((ofertas: Oferta[]) => console.log(ofertas));
+    this.ofertas.subscribe((ofertas: Oferta[]) => {
+      this.ofertas2 = ofertas;
+    });
   }
 
   public search(searchReference: string): void {
