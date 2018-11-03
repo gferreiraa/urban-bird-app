@@ -1,9 +1,9 @@
-import { Observable } from 'rxjs';
 import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Oferta } from './shared/oferta.model';
 import { URL_API } from './app.api';
 import { map, retry } from 'rxjs/operators';
+import { Observable } from 'rxjs-compat';
 
 @Injectable()
 export class OfertasServices {
