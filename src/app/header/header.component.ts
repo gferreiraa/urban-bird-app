@@ -3,6 +3,8 @@ import { OfertasServices } from 'src/app/ofertas.service';
 import { Oferta } from '../shared/oferta.model';
 
 import '../util/rxjs-extensios';
+import { Observable, Subject, of } from 'rxjs';
+import { debounceTime, switchMap, distinctUntilChanged, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -12,31 +14,37 @@ import '../util/rxjs-extensios';
 })
 export class HeaderComponent implements OnInit {
 
-  public ofertas: Observable<Oferta[]>;
-  public subjectPesquisa: Subject<string> = new Subject<string>();
+  public ofertas: Observable <Oferta[]>;
   public ofertas2: Oferta[];
+  private subjectPesquisa: Subject<string> = new Subject<string>();
 
-  constructor( private OfertasService: OfertasServices) { }
+  constructor(private ofertasService: OfertasServices) { }
 
   ngOnInit() {
-    this.ofertas = this.subjectPesquisa
-      .pipe(debounceTime(1000))
-      .pipe(distinctUntilChanged())
-      .pipe(switchMap((termo: string) => {
-        console.log( 'Requisição http para api' );
+    this.ofertas = this.subjectPesquisa.pipe(
+      debounceTime(1000),
+      distinctUntilChanged(),
+      switchMap((termo: string) => {
+        console.log('requisição http para a api ', termo);
+
         if (termo.trim() === '') {
-          return of<Oferta[]>([]);
+          return of([]);
         }
-        return this.OfertasService.pesquisaOfertas(termo);
+        return this.ofertasService.pesquisaOfertas(termo);
+      }),
+      catchError ((erro) => {
+        console.log(erro);
+        return of([]);
       })
     );
+
     this.ofertas.subscribe((ofertas: Oferta[]) => {
+      console.log(ofertas);
       this.ofertas2 = ofertas;
     });
   }
-
-  public search(searchReference: string): void {
-    this.subjectPesquisa.next(searchReference);
+  public pesquisa(termoDaBusca: string): void {
+    console.log('keyup caracter: ', termoDaBusca);
+    this.subjectPesquisa.next(termoDaBusca);
   }
-
 }
