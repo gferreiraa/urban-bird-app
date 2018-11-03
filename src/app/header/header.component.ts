@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { OfertasServices } from 'src/app/ofertas.service';
 import { Oferta } from '../shared/oferta.model';
 
-import '../util/rxjs-extensios';
 import { Observable, Subject, of } from 'rxjs';
 import { debounceTime, switchMap, distinctUntilChanged, catchError } from 'rxjs/operators';
 

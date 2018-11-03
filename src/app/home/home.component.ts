@@ -11,12 +11,12 @@ export class HomeComponent implements OnInit {
 
   public ofertas: Oferta[];
 
-  constructor( private OfertasService: OfertasServices) { }
+  constructor( private ofertasService: OfertasServices) { }
 
   ngOnInit() {
     // this.ofertas = this.OfertasService.getOfertas();
     // console.log(this.ofertas);
-    this.OfertasService.getOfertas()
+    this.ofertasService.getOfertas()
     .then(( ofertas: Oferta[] ) => {
       // tslint:disable-next-line:no-unused-expression
       this.ofertas = ofertas;
