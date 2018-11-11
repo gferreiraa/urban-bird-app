@@ -25,4 +25,5 @@
 
 .list-group--customize{
     position: absolute;
+    z-index: 999;
 }

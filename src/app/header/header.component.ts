@@ -23,22 +23,22 @@ export class HeaderComponent implements OnInit {
       debounceTime(1000),
       distinctUntilChanged(),
       switchMap((termo: string) => {
-        console.log('requisição http para a api ', termo);
-
         if (termo.trim() === '') {
           return of([]);
         }
         return this.ofertasService.pesquisaOfertas(termo);
       }),
       catchError ((erro) => {
-        console.log(erro);
         return of([]);
       })
     );
 
   }
   public pesquisa(termoDaBusca: string): void {
-    console.log('keyup caracter: ', termoDaBusca);
     this.subjectPesquisa.next(termoDaBusca);
+  }
+
+  public limpaPesquisa(): void {
+    this.subjectPesquisa.next('');
   }
 }
