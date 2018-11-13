@@ -18,6 +18,12 @@ export class OrdemCompraComponent implements OnInit {
     public complementoValido: boolean;
     public formaPagamentoValido: boolean;
 
+    // Estado Pristine (Primitivo dos campos)
+    public enderecoEstadoPrimitivo = true;
+    public numeroEstadoPrimitivo = true;
+    public complementoEstadoPrimitivo = true;
+    public formaPagamentoEstadoPrimitivo = true;
+
   constructor() { }
 
   ngOnInit() {
@@ -25,8 +31,9 @@ export class OrdemCompraComponent implements OnInit {
 
   public atualizaEndereco(endereco: string): void {
     this.endereco = endereco;
+    this.enderecoEstadoPrimitivo = false;
     // Regra para validar endereço: String maior que 3
-    if ( this.endereco.length > 3) {
+    if ( this.endereco.length > 2) {
       this.enderecoValido = true;
     } else {
       this.enderecoValido = false;
@@ -35,6 +42,7 @@ export class OrdemCompraComponent implements OnInit {
 
   public atualizaNumero (numero: string): void {
     this.numero = numero;
+    this.numeroEstadoPrimitivo = false;
     // Regra para validar número: Number maior ou igual a 2
     if ( this.numero.length > 0) {
       this.numeroValido = true;
@@ -45,6 +53,7 @@ export class OrdemCompraComponent implements OnInit {
 
   public atualizarComplemente (complemento: string): void {
     this.complemento = complemento;
+    this.complementoEstadoPrimitivo = false;
     if ( this.complemento.length > 0) {
       this.complementoValido = true;
     }
@@ -52,9 +61,10 @@ export class OrdemCompraComponent implements OnInit {
 
   public atualizaFormaPagamento (formaPagamento: string): void {
     this.formaPagamento = formaPagamento;
+    this.formaPagamentoEstadoPrimitivo = false;
     if ( this.formaPagamento.length > 0 ) {
       this.formaPagamentoValido = true;
-    } else{
+    } else {
       this.formaPagamentoValido = false;
     }
   }
