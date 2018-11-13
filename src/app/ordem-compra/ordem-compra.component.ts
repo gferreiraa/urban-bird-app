@@ -51,7 +51,7 @@ export class OrdemCompraComponent implements OnInit {
     }
   }
 
-  public atualizarComplemente (complemento: string): void {
+  public atualizaComplemento (complemento: string): void {
     this.complemento = complemento;
     this.complementoEstadoPrimitivo = false;
     if ( this.complemento.length > 0) {
