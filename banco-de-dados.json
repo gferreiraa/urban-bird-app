@@ -283,6 +283,13 @@
       "complemento": "da",
       "formaPagamento": "dinheiro",
       "id": 14
+    },
+    {
+      "endereco": "Rua Teobaldo",
+      "numero": "122",
+      "complemento": "wqw",
+      "formaPagamento": "debito",
+      "id": 15
     }
   ]
 }
