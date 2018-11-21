@@ -1,6 +1,6 @@
 <div class="container">
   <div class="ordem-compra">
-    <form novalidate #formulario='ngForm' (ngSubmit)='confirmarCompra(formulario)'>
+    <form novalidate #formulario='ngForm' (ngSubmit)='confirmarCompra()'>
 
       <h5>Sua Compra</h5>
       <hr />
@@ -132,7 +132,8 @@
       <hr />
       <button
         type="button"
-        class="btn btn-primary btn-lg"
+        class="btn btn-primary btn-lg mb-5"
+        (click)="confirmarCompra()"
       >Cofirmar compra</button>
     </form>
   </div>
