@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Pedido } from './shared/pedido.model';
 import { Observable } from 'rxjs';
 import { URL_API } from './app.api';
-import { map } from 'rxjs/operators';
 @Injectable()
 export class OrdemCompraService {
 
