@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdemCompraService } from '../ordem-compra.service';
 import { Pedido } from '../shared/pedido.model';
-import { FormGroup, FormControlName, FormControl } from '@angular/forms';
+import { FormGroup, FormControlName, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-ordem-compra',
@@ -12,7 +12,7 @@ import { FormGroup, FormControlName, FormControl } from '@angular/forms';
 export class OrdemCompraComponent implements OnInit {
 
   public formulario: FormGroup = new FormGroup({
-    'endereco': new FormControl(null),
+    'endereco': new FormControl(null, [ Validators.required, Validators.minLength(3), Validators.maxLength(4)]),
     'numero': new FormControl(null),
     'complemento': new FormControl(null),
     'formaPagamento': new FormControl(null)
