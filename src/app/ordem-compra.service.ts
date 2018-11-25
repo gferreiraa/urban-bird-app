@@ -18,7 +18,7 @@ export class OrdemCompraService {
       `${URL_API}/pedidos`,
        JSON.stringify(pedido),
        new RequestOptions({ headers: headers })
-    );
-     // .map((resposta: Response) => resposta.json().id);
+    )
+    .map((resposta: Response) => resposta.json().id);
   }
 }
