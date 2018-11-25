@@ -37,7 +37,7 @@ export class OrdemCompraComponent implements OnInit {
 
     } else {
 
-      let pedido: Pedido = new Pedido(
+      const pedido: Pedido = new Pedido(
         this.formulario.value.endereco,
         this.formulario.value.numero,
         this.formulario.value.complemento,
