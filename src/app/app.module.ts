@@ -7,6 +7,7 @@ registerLocaleData(localePt);
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CarrinhoService } from './carrinho.service';
 
 
 import { ROUTES } from './app.routes';
@@ -44,7 +45,7 @@ import { OrdemCompraSucessoComponent } from './ordem-compra-sucesso/ordem-compra
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [ { provide: LOCALE_ID, useValue: 'pt' } ],
+  providers: [ CarrinhoService, { provide: LOCALE_ID, useValue: 'pt' } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
