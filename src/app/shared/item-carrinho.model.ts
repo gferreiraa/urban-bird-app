@@ -1,4 +1,4 @@
-class ItemCarrinho {
+export class ItemCarrinho {
   constructor(
     public id: number,
     public img: object,
@@ -8,4 +8,3 @@ class ItemCarrinho {
     public quantidade: number
   ) { }
 }
-export { ItemCarrinho };
