@@ -25,8 +25,16 @@ export class CarrinhoService {
     } else {
       this.itens.push(itemCarrinho);
     }
-
-    console.log(itemCarrinho);
-
   }
+
+  public totalCarrinhoCompras(): number {
+    let total = 0;
+    this.itens.map((item: ItemCarrinho) => {
+      total = total + (item.valor * item.quantidade);
+    });
+    return total;
+  }
+
+
+
 }
