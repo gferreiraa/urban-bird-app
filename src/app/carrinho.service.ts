@@ -9,7 +9,7 @@ export class CarrinhoService {
   }
 
   public incluirItem(oferta: Oferta): void {
-    let itemCarrinho: ItemCarrinho = new ItemCarrinho (
+    const itemCarrinho: ItemCarrinho = new ItemCarrinho (
       oferta.id,
       oferta.imagens[0],
       oferta.titulo,
@@ -17,7 +17,7 @@ export class CarrinhoService {
       oferta.valor,
       1
     );
-
+    this.itens.push(itemCarrinho);
     console.log(itemCarrinho);
 
   }
