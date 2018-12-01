@@ -48,6 +48,9 @@ export class CarrinhoService {
     let itemCarrinhoEncotrado = this.itens.find((item: ItemCarrinho) => item.id === itemCarrinho.id);
     if (itemCarrinhoEncotrado) {
       itemCarrinhoEncotrado.quantidade -= 1;
+      if (itemCarrinhoEncotrado.quantidade === 0 ) {
+        this.itens.splice(this.itens.indexOf(itemCarrinhoEncotrado), 1);
+      }
     }
   }
 
