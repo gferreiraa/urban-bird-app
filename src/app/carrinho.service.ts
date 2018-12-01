@@ -35,11 +35,13 @@ export class CarrinhoService {
     return total;
   }
 
-  public adicionarQuantidade(item: ItemCarrinho): void {
-    let itemCarrinhoEncontrado = this.itens.find((item: ItemCarrinho) => item.id === itemCarrinho.id);
-    if (itemCarrinhoEncontrado) {
-      itemCarrinhoEncontrado.quantidade += 1;
-    }
+  public adicionarQuantidade(itemCarrinho: ItemCarrinho): void {
+    console.log(itemCarrinho);
+    // icrementar quantidade
+    let itemCarrinhoEncotrado = this.itens.find((item: ItemCarrinho) => item.id === itemCarrinho.id);
+      if (itemCarrinhoEncotrado) {
+        itemCarrinhoEncotrado.quantidade += 1;
+      }
   }
 
 }
