@@ -63,4 +63,8 @@ export class OrdemCompraComponent implements OnInit {
     this.carrinhoService.adicionarQuantidade(item);
   }
 
+  public remover(item: ItemCarrinho): void {
+    this.carrinhoService.removerQuantidade(item);
+  }
+
 }

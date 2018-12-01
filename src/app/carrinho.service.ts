@@ -1,4 +1,4 @@
-import { ItemCarrinho } from './shared/item-carrinho.model';
+import { ItemCarrinho, ItemCarrinho, ItemCarrinho } from './shared/item-carrinho.model';
 import { Oferta } from './shared/oferta.model';
 export class CarrinhoService {
 
@@ -42,6 +42,13 @@ export class CarrinhoService {
       if (itemCarrinhoEncotrado) {
         itemCarrinhoEncotrado.quantidade += 1;
       }
+  }
+
+  public removerQuantidade(ItemCarrinho: ItemCarrinho): void {
+    let itemCarrinhoEncotrado = this.itens.find((item: ItemCarrinho) => item.id === ItemCarrinho.id);
+    if (itemCarrinhoEncotrado) {
+      itemCarrinhoEncotrado.quantidade -= 1;
+    }
   }
 
 }
