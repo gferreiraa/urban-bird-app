@@ -44,8 +44,8 @@ export class CarrinhoService {
       }
   }
 
-  public removerQuantidade(ItemCarrinho: ItemCarrinho): void {
-    let itemCarrinhoEncotrado = this.itens.find((item: ItemCarrinho) => item.id === ItemCarrinho.id);
+  public removerQuantidade(itemCarrinho: ItemCarrinho): void {
+    let itemCarrinhoEncotrado = this.itens.find((item: ItemCarrinho) => item.id === itemCarrinho.id);
     if (itemCarrinhoEncotrado) {
       itemCarrinhoEncotrado.quantidade -= 1;
     }
