@@ -1,4 +1,4 @@
-import { ItemCarrinho, ItemCarrinho, ItemCarrinho } from './shared/item-carrinho.model';
+import { ItemCarrinho } from './shared/item-carrinho.model';
 import { Oferta } from './shared/oferta.model';
 export class CarrinhoService {
 
