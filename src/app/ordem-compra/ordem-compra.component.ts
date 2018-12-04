@@ -45,17 +45,20 @@ export class OrdemCompraComponent implements OnInit {
 
     } else {
 
-      const pedido: Pedido = new Pedido(
-        this.formulario.value.endereco,
-        this.formulario.value.numero,
-        this.formulario.value.complemento,
-        this.formulario.value.formaPagamento
-      );
-
-      this.ordemCompraService.efetivarCompra(pedido)
-        .subscribe((idPedido: any) => {
-          this.idPedidoCompra = idPedido;
-        });
+      if (this.carrinhoService.exibirItens().length === 0) {
+        alert('Você não tem itens no seu carrinho');
+      } else {
+        const pedido: Pedido = new Pedido(
+          this.formulario.value.endereco,
+          this.formulario.value.numero,
+          this.formulario.value.complemento,
+          this.formulario.value.formaPagamento
+        );
+/*         this.ordemCompraService.efetivarCompra(pedido)
+          .subscribe((idPedido: any) => {
+            this.idPedidoCompra = idPedido;
+          }); */
+      }
     }
   }
 
