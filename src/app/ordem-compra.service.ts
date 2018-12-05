@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Pedido } from './shared/pedido.model';
 import { Observable } from 'rxjs';
 import { URL_API } from './app.api';
+import { map } from 'rxjs/operators';
 @Injectable()
 export class OrdemCompraService {
 
@@ -18,7 +19,9 @@ export class OrdemCompraService {
       `${URL_API}/pedidos`,
        JSON.stringify(pedido),
        new RequestOptions({ headers: headers })
-    )
-    .map((resposta: Response) => resposta.json().id);
+    ).pipe(
+      map((resposta: Response) => resposta.json().id)
+    );
+
   }
 }
