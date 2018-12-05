@@ -18,7 +18,7 @@ export class CarrinhoService {
       1
     );
     // Verifica a existência do item.
-    let itemCarrinhoEncontrado = this.itens.find( (item: ItemCarrinho) => item.id === itemCarrinho.id);
+    const itemCarrinhoEncontrado = this.itens.find( (item: ItemCarrinho) => item.id === itemCarrinho.id);
 
     if ( itemCarrinhoEncontrado ) {
       itemCarrinhoEncontrado.quantidade = itemCarrinhoEncontrado.quantidade + 1;
@@ -38,20 +38,24 @@ export class CarrinhoService {
   public adicionarQuantidade(itemCarrinho: ItemCarrinho): void {
     console.log(itemCarrinho);
     // icrementar quantidade
-    let itemCarrinhoEncotrado = this.itens.find((item: ItemCarrinho) => item.id === itemCarrinho.id);
+    const itemCarrinhoEncotrado = this.itens.find((item: ItemCarrinho) => item.id === itemCarrinho.id);
       if (itemCarrinhoEncotrado) {
         itemCarrinhoEncotrado.quantidade += 1;
       }
   }
 
   public removerQuantidade(itemCarrinho: ItemCarrinho): void {
-    let itemCarrinhoEncotrado = this.itens.find((item: ItemCarrinho) => item.id === itemCarrinho.id);
+    const itemCarrinhoEncotrado = this.itens.find((item: ItemCarrinho) => item.id === itemCarrinho.id);
     if (itemCarrinhoEncotrado) {
       itemCarrinhoEncotrado.quantidade -= 1;
       if (itemCarrinhoEncotrado.quantidade === 0 ) {
         this.itens.splice(this.itens.indexOf(itemCarrinhoEncotrado), 1);
       }
     }
+  }
+
+  public limparCarrinho(): void {
+    this.itens = [];
   }
 
 }
