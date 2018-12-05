@@ -358,6 +358,25 @@
         }
       ],
       "id": 23
+    },
+    {
+      "endereco": "Xxx",
+      "numero": "666",
+      "complemento": "Casa",
+      "formaPagamento": "dinheiro",
+      "itens": [
+        {
+          "id": 2,
+          "img": {
+            "url": "/assets/ofertas/2/img1.jpg"
+          },
+          "titulo": "Cozinha Mexicana",
+          "descricao_oferta": "Almoço ou Jantar com Rodízio Mexicano delicioso.",
+          "valor": 32.9,
+          "quantidade": 1
+        }
+      ],
+      "id": 24
     }
   ]
 }
